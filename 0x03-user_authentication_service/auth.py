@@ -33,6 +33,7 @@ def _generate_uuid() -> str:
     """
     return str(uuid4())
 
+
 class Auth:
     """
     Auth class to interact wit the auth db
@@ -79,7 +80,7 @@ class Auth:
         passwd = password.encode('utf-8')
         return bcrypt.checkpw(passwd, user_password)
 
-    def create_session(self,  email:str):
+    def create_session(self,  email: str):
         """
         Create a session_id for an existing user and update the user's
         session_id attribute
@@ -147,7 +148,7 @@ class Auth:
         self._db.update_user(user.id, reset_token=reset_token)
         return reset_token
 
-    def update_password(self, reset_token: str, password:str) -> None:
+    def update_password(self, reset_token: str, password: str) -> None:
         """
         Updates a user's password
         Args:
