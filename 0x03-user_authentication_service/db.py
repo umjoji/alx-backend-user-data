@@ -19,7 +19,9 @@ class DB:
         """Initialise a new DB instance"""
 
         self._engine = create_engine("sqlite:///a.db", echo=True)
-        # Create all tables in the engine. This is equivalent to "Create Table" statements in raw SQL.
+        # Create all tables in the engine.
+        # This is equivalent to "Create Table"
+        # statements in raw SQL.
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         self.__session = None
